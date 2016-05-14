@@ -4,7 +4,7 @@
 # https://github.com/mathiasbynens/dotfiles/blob/5d1850e041f955c48f5a2241faabddd7af895b58/bootstrap.sh
 
 cd "$(dirname "${BASH_SOURCE}")"
-git pull origin master
+git pull origin dev 
 
 gitExitCode=$?
 if [[ $gitExitCode != 0 ]]; then
