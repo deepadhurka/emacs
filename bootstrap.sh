@@ -22,7 +22,7 @@ function clean() {
 
 function doIt() {
     for i in $(ls -a); do 
-	if [ $i != '.' -a $i != '..' -a $i != '.git' -a $i != '.DS_Store' -a $i != 'bootstrap.sh' -a $i != 'README.md' -a $i != '.gitignore' -a $i != '.gitmodules' ]; then 
+	if [ $i != '.' -a $i != '..' -a $i != '.git' -a $i != '.DS_Store' -a $i != 'bootstrap.sh' -a $i != 'README.md' -a $i != '.gitignore' -a $i != '.gitmodules' -a $i != 'pycheckers' -a $i != venv ]; then 
             if [ $(uname) == "Darwin" ]; then
 	        echo "$i"
 	        gcp -alrf "$i" "$HOME/"
@@ -32,6 +32,13 @@ function doIt() {
             fi
 	fi
     done
+    if [ $(uname) == "Darwin" ]; then
+	gcp -alrf pycheckers "$HOME/bin/"
+    else
+        echo "$i"
+        cp -alrf pycheckers "$HOME/bin/"
+    fi
+
 }
 
 clean

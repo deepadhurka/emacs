@@ -13,6 +13,7 @@
     (eval-print-last-sexp)))
 
 ; packages to install
+;               nxhtml
 (setq 
  my-packages '(auctex
                auto-complete
@@ -21,7 +22,6 @@
                magit
                markdown-mode
                matlab-mode
-               nxhtml
                pydoc-info
                scss-mode
                popup

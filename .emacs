@@ -53,8 +53,8 @@
 (require 'ido)
 (ido-mode 1)
 
-;; MuMaMo
-(require 'mumamo-settings)
+;; MuMaMo - nxhtl does not install well
+;;(require 'mumamo-settings)
 
 ;; Markdown mode
 (require 'markdown-settings)

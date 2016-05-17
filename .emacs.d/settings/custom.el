@@ -8,7 +8,7 @@
 
 ; color theme
 (add-to-list 'custom-theme-load-path (make-plugin-path "color-theme-solarized"))
-(load-theme 'solarized 1)
+(load-theme 'solarized t)
 (setq solarized-termcolors 256)
 
 (require 'faces)
@@ -46,6 +46,6 @@
  '(markdown-math-face ((t (:inherit font-lock-string-face :foreground "#cb4b16" :slant italic))))
  (if (window-system)
      '(mode-line ((t (:background "#0a2832" :foreground "#eee8d4" :inverse-video t :box nil :underline nil :slant normal :weight normal)))))
- '(mumamo-background-chunk-major ((t (:background "#002b36"))))
+ ;; '(mumamo-background-chunk-major ((t (:background "#002b36"))))
  '(py-variable-name-face ((t (:inherit default :foreground "#268bd2")))))
 

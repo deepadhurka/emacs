@@ -120,3 +120,43 @@ The python mode needs to have the `jedi`, `epc`, and `pylint` packages added to 
   ```
 
 Hint provided by Andrea Crotti's EuroPython 2013 Conference talk, [Emacs and shell as your best friends](https://www.youtube.com/watch?v=0cZ7szFuz18), and the [minimal Emacs configuration](https://github.com/AndreaCrotti/minimal-emacs-configuration) used in the talk.
+
+
+=================================
+Full Dev Environment Setup
+
+Requirements:
+Ubuntu 14.04
+Emacs 24.4 or higher. Check with emacs --version
+
+git clone https://github.com/deepadhurka/emacs
+git checkout -b dev --track dev
+cd $HOME/emacs
+./bootstrap.sh  #installs the .emacs, .emacs.d, .bashrc, .bash_aliases, requirements.txt files
+#installs pychecker in $HOME/bin/
+#source .bashrc
+
+sudo apt-get install bash-completion
+sudo apt-get install bzr
+sudo apt-get install cvs
+sudo apt-get install mercurial #hg
+sudo apt-get install automake
+sudo apt-get install texlive
+sudo apt-get install texinfo
+sudo apt-get install python-pip
+sudo pip install virtualenv
+
+cd $HOME/emacs
+virtualenv venv
+emenv #source venv
+#install requirements in venv
+pip install -r requirements.txt
+
+NOW run bootstrap
+
+TODO: 
+Merge my C emacs settings into this git repo emacs el files and configs.
+Merge the MyEnv changes to the python emacs dev branch in git.
+Merge the golang changes too
+Create requirements.txt and place in emacs git repo
+
