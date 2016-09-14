@@ -1,3 +1,5 @@
 alias cd1="cd .."
 alias cd2="cd ../.."
+alias cd3="cd ../../.."
 alias emenv="source $HOME/emacs/venv/bin/activate"
+alias cdshare="cd /mnt/hgfs"

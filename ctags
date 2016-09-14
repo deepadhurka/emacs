@@ -1,0 +1,30 @@
+#!/bin/bash
+#ctags <repo-name-with-full-path>
+#cd /
+#path_to_dir="$HOME/hub/forked/$1"
+path_to_dir=$1
+echo $path_to_dir
+
+echo "generate cscope.files"
+find  $path_to_dir  -name "*.[chs]" -type f > $path_to_dir/cscope.files
+find  $path_to_dir  -name "*.cpp" -type f >> $path_to_dir/cscope.files
+find  $path_to_dir  -name "*.my" -type f >> $path_to_dir/cscope.files
+find  $path_to_dir  -name "*.dat" -type f >> $path_to_dir/cscope.files
+
+cd $path_to_dir
+echo `cscope -q -b -i cscope.files`
+#cscope -d
+echo "cscope done"
+
+#----------------------------------------------------------------------
+
+#GID
+mkid -v
+
+echo "gid done"
+#----------------------------------------------------------------------
+
+#ETAGS
+fnid | etags -
+echo "etags done"
+

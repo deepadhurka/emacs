@@ -1,7 +1,5 @@
 # Emacs Configuration
 
-> **Please note**: I no longer use emacs regularly and am unable to support issues on this configuration. I will leave it up for people in case it is useful, but I have disabled issues on the repository and will not respond to emails asking for help -- I receive too many emails as it is, and unfortunately I cannot respond to every one.
-
 **Tested on versions:**
 * GNU Emacs 24.3.1 (x86_64-apple-darwin13.1.0, NS apple-appkit-1265.19) of 2014-04-06
 * GNU Emacs 24.3.1 (x86_64-pc-linux-gnu, GTK+ Version 3.4.2) of 2014-02-22
@@ -121,20 +119,13 @@ The python mode needs to have the `jedi`, `epc`, and `pylint` packages added to 
 
 Hint provided by Andrea Crotti's EuroPython 2013 Conference talk, [Emacs and shell as your best friends](https://www.youtube.com/watch?v=0cZ7szFuz18), and the [minimal Emacs configuration](https://github.com/AndreaCrotti/minimal-emacs-configuration) used in the talk.
 
-
-=================================
-Full Dev Environment Setup
-
+### Full Dev Environment Setup
 Requirements:
 Ubuntu 14.04
 Emacs 24.4 or higher. Check with emacs --version
 
 git clone https://github.com/deepadhurka/emacs
 git checkout -b dev --track dev
-cd $HOME/emacs
-./bootstrap.sh  #installs the .emacs, .emacs.d, .bashrc, .bash_aliases, requirements.txt files
-#installs pychecker in $HOME/bin/
-#source .bashrc
 
 sudo apt-get install bash-completion
 sudo apt-get install bzr
@@ -144,19 +135,39 @@ sudo apt-get install automake
 sudo apt-get install texlive
 sudo apt-get install texinfo
 sudo apt-get install python-pip
+sudo apt-get install cscope
+sudo apt-get install id-utils
 sudo pip install virtualenv
 
+
 cd $HOME/emacs
+source .bashrc
+
 virtualenv venv
-emenv #source venv
+emenv #sources venv
+
 #install requirements in venv
 pip install -r requirements.txt
 
-NOW run bootstrap
+#NOW run bootstrap
+./bootstrap.sh  #installs the .emacs, .emacs.d, .bashrc, .bash_aliases, requirements.txt files
 
-TODO: 
-Merge my C emacs settings into this git repo emacs el files and configs.
-Merge the MyEnv changes to the python emacs dev branch in git.
-Merge the golang changes too
-Create requirements.txt and place in emacs git repo
+Note: Manual step for setting up C programming environment with el-get
+Once you run emacs for the first time and el-get is installed, follow these steps:
+a. close emacs
+b. copy idutils.rcp from emacs/ dir to $HOME/.emacs.d/el-get/el-get/recipes/
+c. start emacs
+This time, idutils will be installed properly
+
+### TODO
+idutils.rcp needs to be in el-get/recipes upstream; until then, all personal recipes will have to be baby-sat.
+Include golang recipes for emacs integration, once golang is setup.
+
+### How To Add A Package (Read Carefully)
+1. Find if a recipe is existing for the package in $HOME/.emacs.d/el-get/el-get/recipes. If yes, skip to step 3.
+2. Write a recipe in the aforementioned recipe dir. If a github repo doesn't exist, create one and set it up.
+3. Include the package (recipe name) in $HOME/.emacs.d/settings/el-get-settings.el under my-packages
+4. Include the corresponding 'require' statement in $HOME/.emacs. 
+5. Upload everything back to github. Note that the $HOME/.emacs has to be copied back to $HOME/emacs/.emacs for uploading.
+
 

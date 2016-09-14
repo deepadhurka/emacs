@@ -1,5 +1,6 @@
 ;; path where settings files are kept
-(add-to-list 'load-path "~/.emacs.d/settings")
+(add-to-list 'load-path "~/.emacs.d/settings/")
+
 ;; path to where plugins are kept
 (setq plugin-path "~/.emacs.d/el-get/")
 
@@ -17,8 +18,8 @@
 ;---------------;
 
 ;; Git
-(include-plugin "magit")
-(require 'magit)
+;;(include-plugin "magit")
+;;(require 'magit)
 
 ;; Popup
 (include-elget-plugin "popup")
@@ -44,6 +45,8 @@
 ;; Helm
 (require 'helm-settings)
 
+;; id-utils 
+(require 'id-utils)
 
 ;-----------;
 ;;; Modes ;;;
@@ -53,7 +56,7 @@
 (require 'ido)
 (ido-mode 1)
 
-;; MuMaMo - nxhtl does not install well
+;; MuMaMo
 ;;(require 'mumamo-settings)
 
 ;; Markdown mode

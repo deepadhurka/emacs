@@ -61,21 +61,49 @@
 (define-key input-decode-map "\e[1;5A" [C-up])
 (define-key input-decode-map "\e[1;5B" [C-down])
 
+;;; Some key bindings
+(global-set-key "\C-ca" 'beginning-of-defun)
+(global-set-key "\C-ce" 'end-of-defun)
+(global-set-key "\C-cg" 'goto-line)
+(global-set-key "\C-cr" 'query-replace-regexp)
+(global-set-key "\C-cj" 'join-line)
+;;(global-set-key "\C-cc" 'compile)
+(global-set-key [f1] 'buffer-menu)
+(global-set-key [f2] 'next-buffer)
+(global-set-key [f3] 'goto-line)
+(global-set-key [f4] 'goto-matching-paren-or-insert)
+(global-set-key [f5] 'gid)
+;;(global-set-key [f6] 'next-error)
+;;(global-set-key [f6] 'speedbar-get-focus)
+;;(global-set-key [f7] 'previous-error)
+(global-set-key [f8] 'delete-other-windows)
+;;(global-set-key [f9] 'tabbar-backward)
+;;(global-set-key [f10]  'tabbar-forward)
+;;(global-set-key [f11] 'my-kill)
+(global-set-key [f12] 'other-window)
+
+;;(define-key global-map "\C-z"  'what-cursor-position)
+(define-key global-map "\C-o"  'what-line)
+
+(global-set-key (kbd "`") 'execute-extended-command)
+
 ; always use spaces, not tabs, when indenting
 (setq-default indent-tabs-mode nil)
 ; indentation styles
-(setq c-basic-offset 8)
+; (setq c-basic-offset 4)
 (setq c-default-style (quote (
     (c-mode . "bsd") 
     (java-mode . "java") 
     (awk-mode . "awk") 
     (other . "gnu"))))
- 
+
+(add-hook 'c-mode-common-hook 'siara-c-mode-common-hook)
+
 ; ignore case when searching
 (setq-default case-fold-search 1)
 
 ; set the keybinding so that you can use f4 for goto line
-(global-set-key [f4] 'goto-line)
+;;(global-set-key [f4] 'goto-line)
 
 ; require final newlines in files when they are saved
 (setq require-final-newline 1)
@@ -113,5 +141,7 @@
 (setq backup-inhibited t)
 ; disable auto save
 (setq auto-save-default nil)
+
+(setq x-select-enable-clipboard t)
 
 (provide 'general-settings)
