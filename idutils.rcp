@@ -1,0 +1,5 @@
+(:name idutils
+       :description "GID utils for C source navigation"
+       :website "https://github.com/deepadhurka/idutils"
+       :type github
+       :pkgname "deepadhurka/idutils")
